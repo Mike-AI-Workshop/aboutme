@@ -34,10 +34,14 @@ jobs:
       - name: Build Project 🏗️
         run: npm run build
 
-      # 使用 GitHub Actions 官方部署方案
-      - name: Deploy to GitHub Pages 🚀
-        uses: JamesIves/github-pages-deploy-action@v4
+      - name: Setup Pages 📄
+        uses: actions/configure-pages@v3
+
+      - name: Upload artifact 📦
+        uses: actions/upload-pages-artifact@v2
         with:
-          folder: dist  # 构建输出目录
-          branch: gh-pages  # 部署到的分支
-          clean: true  # 清理目标分支的旧文件
+          path: './dist'
+
+      - name: Deploy to GitHub Pages 🚀
+        id: deployment
+        uses: actions/deploy-pages@v2
