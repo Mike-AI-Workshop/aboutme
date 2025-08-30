@@ -10,10 +10,12 @@ export default defineConfig({
     emptyOutDir: true,
     rollupOptions: {
       output: {
+        entryFileNames: 'assets/[name]-[hash].js',
+        chunkFileNames: 'assets/[name]-[hash].js',
         assetFileNames: (assetInfo) => {
           // 确保 CSS 文件有正确的路径
-          if (['aos.css', 'github.css', 'github-markdown.css'].includes(assetInfo.name)) {
-            return `assets/${assetInfo.name}`
+          if (assetInfo.name?.endsWith('.css')) {
+            return `assets/[name]-[hash][extname]`
           }
           return 'assets/[name]-[hash][extname]'
         }
@@ -22,11 +24,7 @@ export default defineConfig({
   },
   resolve: {
     alias: {
-      '@': '/src',
-      // 使用绝对路径导入 CSS
-      'aos/dist/aos.css': '/node_modules/aos/dist/aos.css',
-      'highlight.js/styles/github.css': '/node_modules/highlight.js/styles/github.css',
-      'github-markdown-css/github-markdown.css': '/node_modules/github-markdown-css/github-markdown.css'
+      '@': '/src'
     }
   },
   css: {

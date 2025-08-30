@@ -4,9 +4,9 @@ import App from './App.vue'
 import router from './router'
 import VueLazyload from 'vue-lazyload'
 import AOS from 'aos'
-import '/node_modules/aos/dist/aos.css'
-import '/node_modules/highlight.js/styles/github.css'
-import '/node_modules/github-markdown-css/github-markdown.css'
+import 'aos/dist/aos.css'
+import 'highlight.js/styles/github.css'
+import 'github-markdown-css/github-markdown.css'
 
 // 引入全局样式
 import './assets/styles/global.css'
@@ -22,8 +22,8 @@ app.use(router)
 // 配置 vue-lazyload
 app.use(VueLazyload, {
   preLoad: 1.3,
-  error: '/aboutme/images/error-image.png', // 加载失败时显示的图片
-  loading: '/aboutme/images/loading.png', // 加载中显示的图片
+  error: '/aboutme/public/images/error-image.png', // 加载失败时显示的图片
+  loading: '/aboutme/public/images/loading.png', // 加载中显示的图片
   attempt: 1
 })
 

@@ -24,6 +24,13 @@ function createPlaceholderImage(filename, width, height, color) {
   // 保存图片
   const buffer = canvas.toBuffer('image/png');
   const outputPath = path.join(__dirname, '..', 'public', 'images', filename);
+  
+  // 确保目录存在
+  const outputDir = path.dirname(outputPath);
+  if (!fs.existsSync(outputDir)) {
+    fs.mkdirSync(outputDir, { recursive: true });
+  }
+
   fs.writeFileSync(outputPath, buffer);
 }
 
