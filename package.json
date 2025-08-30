@@ -4,7 +4,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "vite build && node scripts/prepare-content.js",
     "preview": "vite preview",
     "generate-placeholders": "node scripts/generate-placeholders.js",
     "test": "vitest",
@@ -12,6 +12,8 @@
   },
   "dependencies": {
     "aos": "^2.3.4",
+    "gsap": "^3.12.2",
+    "gray-matter": "^4.0.3",
     "pinia": "^2.1.7",
     "vue": "^3.3.4",
     "vue-lazyload": "^3.0.0",

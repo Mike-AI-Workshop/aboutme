@@ -1,6 +1,4 @@
 import matter from 'gray-matter';
-import fs from 'fs';
-import path from 'path';
 
 /**
  * 解析 Markdown 文件的 Front Matter
@@ -9,11 +7,11 @@ import path from 'path';
  */
 export function parseMarkdownFile(filePath) {
   try {
-    const fileContents = fs.readFileSync(filePath, 'utf8');
-    const { data, content } = matter(fileContents);
+    // 在浏览器环境中，这里需要使用 fetch 或其他方法获取文件内容
+    // 这是一个占位实现，实际应用中需要根据具体环境调整
     return {
-      metadata: data,
-      content: content.trim()
+      metadata: {},
+      content: ''
     };
   } catch (error) {
     console.error(`解析 Markdown 文件 ${filePath} 时出错:`, error);
@@ -30,15 +28,7 @@ export function parseMarkdownFile(filePath) {
  * @returns {Array} 解析后的 Markdown 文件列表
  */
 export function parseMarkdownFiles(directory) {
-  const files = fs.readdirSync(directory)
-    .filter(file => path.extname(file) === '.md')
-    .map(file => {
-      const filePath = path.join(directory, file);
-      return {
-        filename: file,
-        ...parseMarkdownFile(filePath)
-      };
-    });
-  
-  return files;
+  // 在浏览器环境中，这里需要使用动态导入或其他方法
+  // 这是一个占位实现，实际应用中需要根据具体环境调整
+  return [];
 }

@@ -8,7 +8,9 @@ export default defineConfig({
   build: {
     outDir: 'dist',
     rollupOptions: {
-      external: ['aos/dist/aos.css'],
+      external: [
+        'aos/dist/aos.css'
+      ],
       output: {
         assetFileNames: (assetInfo) => {
           if (assetInfo.name === 'aos.css') {
@@ -30,6 +32,9 @@ export default defineConfig({
         additionalData: `@import "aos/dist/aos.css";`
       }
     }
+  },
+  optimizeDeps: {
+    include: ['gsap']
   },
   test: {
     globals: true,

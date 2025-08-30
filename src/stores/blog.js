@@ -1,25 +1,23 @@
 import { defineStore } from 'pinia';
 import { ref } from 'vue';
-import { parseMarkdownFiles } from '@/utils/markdownParser';
-import path from 'path';
 
 export const useBlogStore = defineStore('blog', () => {
   const blogs = ref([]);
   const isLoading = ref(false);
   const error = ref(null);
 
-  function fetchBlogs() {
+  async function fetchBlogs() {
     try {
       isLoading.value = true;
-      const blogsDirectory = path.resolve(__dirname, '../contents/blogs');
-      const parsedBlogs = parseMarkdownFiles(blogsDirectory);
+      const response = await fetch('/blogs.json');
+      const loadedBlogs = await response.json();
       
-      blogs.value = parsedBlogs.map(blog => ({
-        slug: blog.filename.replace('.md', ''),
-        title: blog.metadata.title || '未命名博客',
-        date: blog.metadata.date || '',
-        tags: blog.metadata.tags || [],
-        excerpt: blog.metadata.summary || '',
+      blogs.value = loadedBlogs.map(blog => ({
+        slug: blog.filename,
+        title: blog.title || '未命名博客',
+        date: blog.date || '',
+        tags: blog.tags || [],
+        excerpt: blog.summary || '',
         content: blog.content
       })).sort((a, b) => new Date(b.date) - new Date(a.date));
 
