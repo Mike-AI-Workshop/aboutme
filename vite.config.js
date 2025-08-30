@@ -7,6 +7,7 @@ export default defineConfig({
   base: process.env.NODE_ENV === 'production' ? '/aboutme/' : '/',
   build: {
     outDir: 'dist',
+    emptyOutDir: true,
     rollupOptions: {
       external: [
         'aos/dist/aos.css',

@@ -10,6 +10,12 @@ function prepareMarkdownContent(directory, outputFile) {
   const contentPath = path.resolve(__dirname, '..', directory);
   const outputPath = path.resolve(__dirname, '..', 'dist', outputFile);
 
+  // 确保 dist 目录存在
+  const distDir = path.resolve(__dirname, '..', 'dist');
+  if (!fs.existsSync(distDir)) {
+    fs.mkdirSync(distDir, { recursive: true });
+  }
+
   const files = fs.readdirSync(contentPath)
     .filter(file => path.extname(file) === '.md')
     .map(file => {
