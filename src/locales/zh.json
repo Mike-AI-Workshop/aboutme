@@ -1,0 +1,57 @@
+{
+  "nav": {
+    "home": "首页",
+    "blog": "博客",
+    "projects": "作品集",
+    "contact": "联系"
+  },
+  "home": {
+    "title": "您的名字",
+    "description": "热爱技术，专注于前端开发和用户体验",
+    "skills": [
+      "Vue3", 
+      "React", 
+      "TypeScript", 
+      "JavaScript", 
+      "Node.js", 
+      "Web开发", 
+      "前端设计", 
+      "UI/UX"
+    ]
+  },
+  "blog": {
+    "title": "博客文章",
+    "noArticles": "暂无博客文章",
+    "readMore": "阅读更多",
+    "publishedOn": "发布于"
+  },
+  "projects": {
+    "title": "我的作品集",
+    "noProjects": "暂无项目",
+    "technologies": "技术栈",
+    "viewProject": "查看项目"
+  },
+  "contact": {
+    "title": "联系我",
+    "subtitle": "让我们保持联系",
+    "email": "电子邮件",
+    "socialMedia": "社交媒体",
+    "message": {
+      "name": "姓名",
+      "email": "邮箱",
+      "content": "消息",
+      "send": "发送消息"
+    }
+  },
+  "animations": {
+    "toggle": {
+      "on": "动画开启",
+      "off": "动画关闭",
+      "performanceHint": "关闭动画以提高性能"
+    }
+  },
+  "errors": {
+    "notFound": "未找到页面",
+    "loadingError": "加载失败"
+  }
+}

@@ -1,12 +1,27 @@
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
-
 import App from './App.vue'
 import router from './router'
+import VueLazyload from 'vue-lazyload'
+
+// 引入全局样式
+import './assets/styles/global.css'
+import './assets/styles/responsive.css'
+import 'aos/dist/aos.css'
+import './assets/styles/aos-custom.css'
 
 const app = createApp(App)
+const pinia = createPinia()
 
-app.use(createPinia())
+app.use(pinia)
 app.use(router)
+
+// 配置 vue-lazyload
+app.use(VueLazyload, {
+  preLoad: 1.3,
+  error: '/public/images/error-image.png', // 加载失败时显示的图片
+  loading: '/public/images/loading.gif', // 加载中显示的图片
+  attempt: 1
+})
 
 app.mount('#app')

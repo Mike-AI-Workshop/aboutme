@@ -1,29 +1,42 @@
-# aboutme
+# 个人网站
 
-This template should help get you started developing with Vue 3 in Vite.
+## 技术栈
+- Vue 3
+- Vite
+- Pinia
+- Vue Router
+- Vue Lazyload
 
-## Recommended IDE Setup
+## 开发
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vite.dev/config/).
-
-## Project Setup
-
-```sh
+### 安装依赖
+```bash
 npm install
 ```
 
-### Compile and Hot-Reload for Development
+### 生成占位图
+```bash
+npm run generate-placeholders
+```
 
-```sh
+### 本地开发
+```bash
 npm run dev
 ```
 
-### Compile and Minify for Production
-
-```sh
+### 构建
+```bash
 npm run build
 ```
+
+## 部署
+本项目使用 GitHub Actions 自动部署到 GitHub Pages。每次推送到 `main` 分支时，都会自动触发部署流程。
+
+### 手动部署
+```bash
+npm run build
+npm run preview
+```
+
+## 许可证
+MIT License

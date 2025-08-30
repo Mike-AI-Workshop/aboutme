@@ -1,0 +1,57 @@
+{
+  "nav": {
+    "home": "Home",
+    "blog": "Blog",
+    "projects": "Projects",
+    "contact": "Contact"
+  },
+  "home": {
+    "title": "Your Name",
+    "description": "Tech enthusiast, focused on frontend development and user experience",
+    "skills": [
+      "Vue3", 
+      "React", 
+      "TypeScript", 
+      "JavaScript", 
+      "Node.js", 
+      "Web Development", 
+      "Frontend Design", 
+      "UI/UX"
+    ]
+  },
+  "blog": {
+    "title": "Blog Articles",
+    "noArticles": "No blog articles yet",
+    "readMore": "Read More",
+    "publishedOn": "Published on"
+  },
+  "projects": {
+    "title": "My Portfolio",
+    "noProjects": "No projects yet",
+    "technologies": "Tech Stack",
+    "viewProject": "View Project"
+  },
+  "contact": {
+    "title": "Contact Me",
+    "subtitle": "Let's Stay Connected",
+    "email": "Email",
+    "socialMedia": "Social Media",
+    "message": {
+      "name": "Name",
+      "email": "Email",
+      "content": "Message",
+      "send": "Send Message"
+    }
+  },
+  "animations": {
+    "toggle": {
+      "on": "Animations On",
+      "off": "Animations Off", 
+      "performanceHint": "Turn off animations to improve performance"
+    }
+  },
+  "errors": {
+    "notFound": "Page Not Found",
+    "loadingError": "Loading Failed"
+  }
+}
