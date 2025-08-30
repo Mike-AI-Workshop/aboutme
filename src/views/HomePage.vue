@@ -45,11 +45,7 @@
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue'
 import gsap from 'gsap'
-import { Back } from 'gsap/all'
 import SkillTag from '@/components/SkillTag.vue'
-
-// 注册 GSAP 插件
-gsap.registerPlugin(Back)
 
 const homePageRef = ref(null)
 const homeContainerRef = ref(null)

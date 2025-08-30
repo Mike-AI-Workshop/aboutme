@@ -48,12 +48,8 @@
 import { ref, onMounted, onUnmounted } from 'vue'
 import { useBlogStore } from '@/stores/blog'
 import gsap from 'gsap'
-import { Back } from 'gsap/all'
 import AOS from 'aos'
 import 'aos/dist/aos.css'
-
-// 注册 GSAP 插件
-gsap.registerPlugin(Back)
 
 const blogStore = useBlogStore()
 const blogPageRef = ref(null)
@@ -83,7 +79,6 @@ onMounted(() => {
 onUnmounted(() => {
   // 销毁 AOS
   AOS.refresh()
-
   // 清理动画
   gsap.killTweensOf(blogPageRef.value)
   gsap.killTweensOf(blogHeaderRef.value)
