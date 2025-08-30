@@ -6,11 +6,29 @@ export default defineConfig({
   plugins: [vue()],
   base: process.env.NODE_ENV === 'production' ? '/aboutme/' : '/',
   build: {
-    outDir: 'dist'
+    outDir: 'dist',
+    rollupOptions: {
+      external: ['aos/dist/aos.css'],
+      output: {
+        assetFileNames: (assetInfo) => {
+          if (assetInfo.name === 'aos.css') {
+            return 'assets/aos.css'
+          }
+          return 'assets/[name]-[hash][extname]'
+        }
+      }
+    }
   },
   resolve: {
     alias: {
       '@': '/src'
+    }
+  },
+  css: {
+    preprocessorOptions: {
+      css: {
+        additionalData: `@import "aos/dist/aos.css";`
+      }
     }
   },
   test: {

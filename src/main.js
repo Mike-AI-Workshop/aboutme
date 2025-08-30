@@ -3,11 +3,12 @@ import { createPinia } from 'pinia'
 import App from './App.vue'
 import router from './router'
 import VueLazyload from 'vue-lazyload'
+import AOS from 'aos'
+import 'aos/dist/aos.css'
 
 // 引入全局样式
 import './assets/styles/global.css'
 import './assets/styles/responsive.css'
-import 'aos/dist/aos.css'
 import './assets/styles/aos-custom.css'
 
 const app = createApp(App)
@@ -19,9 +20,15 @@ app.use(router)
 // 配置 vue-lazyload
 app.use(VueLazyload, {
   preLoad: 1.3,
-  error: '/public/images/error-image.png', // 加载失败时显示的图片
-  loading: '/public/images/loading.gif', // 加载中显示的图片
+  error: '/images/error-image.png', // 加载失败时显示的图片
+  loading: '/images/loading.png', // 加载中显示的图片
   attempt: 1
+})
+
+// 初始化 AOS
+AOS.init({
+  duration: 800,
+  once: true
 })
 
 app.mount('#app')

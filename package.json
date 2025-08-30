@@ -11,6 +11,7 @@
     "test:coverage": "vitest run --coverage"
   },
   "dependencies": {
+    "aos": "^2.3.4",
     "pinia": "^2.1.7",
     "vue": "^3.3.4",
     "vue-lazyload": "^3.0.0",
