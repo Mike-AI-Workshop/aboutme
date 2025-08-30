@@ -1,0 +1,14 @@
+[
+  {
+    "filename": "2024-project-personal-website",
+    "title": "个人门户网站",
+    "date": "2024-01-15T00:00:00.000Z",
+    "technologies": [
+      "Vue3",
+      "Vite",
+      "GSAP"
+    ],
+    "cover": "/images/projects/personal-website.png",
+    "content": "# 个人门户网站项目\n\n## 项目简介\n\n这是一个使用 Vue3 构建的现代化个人门户网站，旨在展示个人技能和项目经历。\n\n## 主要特点\n\n- 响应式设计\n- 多语言支持\n- 丰富的动画效果\n\n## 技术栈\n\n- Vue 3\n- Vite\n- GSAP\n- Markdown 解析\n\n## 项目目标\n\n创建一个既美观又实用的个人展示平台，记录技术成长和项目经历。"
+  }
+]
