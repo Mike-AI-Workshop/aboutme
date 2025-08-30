@@ -20,7 +20,9 @@ jobs:
           cache: 'npm'
 
       - name: Install Dependencies 📦
-        run: npm install
+        run: |
+          npm install
+          npm ls || true
 
       - name: Generate Placeholder Images 🖼️
         run: npm run generate-placeholders
