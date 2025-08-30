@@ -5,6 +5,8 @@ import router from './router'
 import VueLazyload from 'vue-lazyload'
 import AOS from 'aos'
 import 'aos/dist/aos.css'
+import 'highlight.js/styles/github.css'
+import 'github-markdown-css/github-markdown.css'
 
 // 引入全局样式
 import './assets/styles/global.css'

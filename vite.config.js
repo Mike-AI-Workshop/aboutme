@@ -9,14 +9,6 @@ export default defineConfig({
     outDir: 'dist',
     emptyOutDir: true,
     rollupOptions: {
-      external: [
-        'aos/dist/aos.css',
-        'marked',
-        'gsap',
-        'highlight.js',
-        'highlight.js/styles/github.css',
-        'github-markdown-css/github-markdown.css'
-      ],
       output: {
         assetFileNames: (assetInfo) => {
           if (['aos.css', 'github.css', 'github-markdown.css'].includes(assetInfo.name)) {
@@ -29,7 +21,11 @@ export default defineConfig({
   },
   resolve: {
     alias: {
-      '@': '/src'
+      '@': '/src',
+      // 添加 CSS 文件的别名
+      'aos/dist/aos.css': '/node_modules/aos/dist/aos.css',
+      'highlight.js/styles/github.css': '/node_modules/highlight.js/styles/github.css',
+      'github-markdown-css/github-markdown.css': '/node_modules/github-markdown-css/github-markdown.css'
     }
   },
   css: {
@@ -49,6 +45,12 @@ export default defineConfig({
       'marked', 
       'highlight.js', 
       'aos'
+    ],
+    // 添加 CSS 文件到预构建依赖
+    entries: [
+      'aos/dist/aos.css',
+      'highlight.js/styles/github.css',
+      'github-markdown-css/github-markdown.css'
     ]
   },
   test: {
