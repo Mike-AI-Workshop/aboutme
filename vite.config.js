@@ -9,12 +9,17 @@ export default defineConfig({
     outDir: 'dist',
     rollupOptions: {
       external: [
-        'aos/dist/aos.css'
+        'aos/dist/aos.css',
+        'marked',
+        'gsap',
+        'highlight.js',
+        'highlight.js/styles/github.css',
+        'github-markdown-css/github-markdown.css'
       ],
       output: {
         assetFileNames: (assetInfo) => {
-          if (assetInfo.name === 'aos.css') {
-            return 'assets/aos.css'
+          if (['aos.css', 'github.css', 'github-markdown.css'].includes(assetInfo.name)) {
+            return `assets/${assetInfo.name}`
           }
           return 'assets/[name]-[hash][extname]'
         }
@@ -29,12 +34,21 @@ export default defineConfig({
   css: {
     preprocessorOptions: {
       css: {
-        additionalData: `@import "aos/dist/aos.css";`
+        additionalData: `
+          @import "aos/dist/aos.css";
+          @import "highlight.js/styles/github.css";
+          @import "github-markdown-css/github-markdown.css";
+        `
       }
     }
   },
   optimizeDeps: {
-    include: ['gsap']
+    include: [
+      'gsap', 
+      'marked', 
+      'highlight.js', 
+      'aos'
+    ]
   },
   test: {
     globals: true,
