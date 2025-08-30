@@ -17,6 +17,10 @@ export default defineConfig({
           if (assetInfo.name?.endsWith('.css')) {
             return `assets/[name]-[hash][extname]`
           }
+          // 处理图片和其他静态资源
+          if (['png', 'jpg', 'jpeg', 'gif', 'svg'].some(ext => assetInfo.name?.endsWith(ext))) {
+            return `images/[name][extname]`
+          }
           return 'assets/[name]-[hash][extname]'
         }
       }
@@ -31,9 +35,9 @@ export default defineConfig({
     preprocessorOptions: {
       css: {
         additionalData: `
-          @import "/node_modules/aos/dist/aos.css";
-          @import "/node_modules/highlight.js/styles/github.css";
-          @import "/node_modules/github-markdown-css/github-markdown.css";
+          @import "aos/dist/aos.css";
+          @import "highlight.js/styles/github.css";
+          @import "github-markdown-css/github-markdown.css";
         `
       }
     }

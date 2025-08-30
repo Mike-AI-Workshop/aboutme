@@ -4,7 +4,7 @@
       <div class="avatar-section" ref="avatarSectionRef">
         <div class="avatar-wrapper">
           <img 
-            v-lazy="'/images/avatar.png'" 
+            v-lazy="'/aboutme/public/images/avatar.png'" 
             alt="个人头像" 
             class="avatar"
           />
@@ -45,7 +45,11 @@
 <script setup>
 import { ref, onMounted } from 'vue'
 import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import SkillTag from '@/components/SkillTag.vue'
+
+// 注册 GSAP 插件
+gsap.registerPlugin(ScrollTrigger)
 
 const homePageRef = ref(null)
 const homeContainerRef = ref(null)

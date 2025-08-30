@@ -48,8 +48,12 @@
 import { ref, onMounted, onUnmounted } from 'vue'
 import { useBlogStore } from '@/stores/blog'
 import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import AOS from 'aos'
 import 'aos/dist/aos.css'
+
+// 注册 GSAP 插件
+gsap.registerPlugin(ScrollTrigger)
 
 const blogStore = useBlogStore()
 const blogPageRef = ref(null)

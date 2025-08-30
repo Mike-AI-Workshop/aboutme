@@ -22,8 +22,8 @@ app.use(router)
 // 配置 vue-lazyload
 app.use(VueLazyload, {
   preLoad: 1.3,
-  error: '/aboutme/public/images/error-image.png', // 加载失败时显示的图片
-  loading: '/aboutme/public/images/loading.png', // 加载中显示的图片
+  error: '/aboutme/images/error-image.png', // 加载失败时显示的图片
+  loading: '/aboutme/images/loading.png', // 加载中显示的图片
   attempt: 1
 })
 
