@@ -4,7 +4,7 @@
       <div class="avatar-section" ref="avatarSectionRef">
         <div class="avatar-wrapper">
           <img 
-            v-lazy="'/aboutme/public/images/avatar.png'" 
+            v-lazy="'/aboutme/images/avatar.png'" 
             alt="个人头像" 
             class="avatar"
           />
@@ -43,13 +43,13 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue'
-import { gsap } from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { ref, onMounted, onUnmounted } from 'vue'
+import gsap from 'gsap'
+import { Back } from 'gsap/all'
 import SkillTag from '@/components/SkillTag.vue'
 
 // 注册 GSAP 插件
-gsap.registerPlugin(ScrollTrigger)
+gsap.registerPlugin(Back)
 
 const homePageRef = ref(null)
 const homeContainerRef = ref(null)
@@ -111,6 +111,14 @@ onMounted(() => {
       `-=${index % 2 === 0 ? 0.3 : 0.2}` // 交错动画
     )
   })
+})
+
+onUnmounted(() => {
+  // 清理动画
+  gsap.killTweensOf(homePageRef.value)
+  gsap.killTweensOf(avatarSectionRef.value)
+  gsap.killTweensOf(introSectionRef.value)
+  skillRefs.value.forEach(ref => gsap.killTweensOf(ref))
 })
 </script>
 
